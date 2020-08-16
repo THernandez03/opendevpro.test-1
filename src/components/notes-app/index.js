@@ -28,8 +28,7 @@ export default class NotesApp extends Component {
     });
   };
 
-  handleFilterClick = (event) => {
-    const { status } = event.target.dataset;
+  handleFilterClick = (status) => (event) => {
     this.setState({ currentFilter: status });
   };
 
@@ -95,7 +94,7 @@ export default class NotesApp extends Component {
               className="tab-item slide-up-fade-in"
               data-testid="allButton"
               data-status={ALL}
-              onClick={this.handleFilterClick}
+              onClick={this.handleFilterClick(ALL)}
             >
               All
             </li>
@@ -103,7 +102,7 @@ export default class NotesApp extends Component {
               className="tab-item slide-up-fade-in"
               data-testid="activeButton"
               data-status={ACTIVE}
-              onClick={this.handleFilterClick}
+              onClick={this.handleFilterClick(ACTIVE)}
             >
               Active
             </li>
@@ -111,7 +110,7 @@ export default class NotesApp extends Component {
               className="tab-item slide-up-fade-in"
               data-testid="completedButton"
               data-status={COMPLETED}
-              onClick={this.handleFilterClick}
+              onClick={this.handleFilterClick(COMPLETED)}
             >
               Completed
             </li>
